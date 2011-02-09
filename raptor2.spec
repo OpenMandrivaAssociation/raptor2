@@ -1,6 +1,6 @@
 %define name    raptor2
 %define version 2.0.0
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define major	0
 %define libname %mklibname %{name}_ %{major}
@@ -37,7 +37,6 @@ Summary:	Header files and static libraries from %name
 Group:		Development/C
 Requires:	%{libname} >= %{version}
 Provides:	%{name}-devel = %{version}
-Conflicts:	%{_lib}raptor-devel < 2.0.0
 
 %description -n	%{develname}
 Libraries and includes files for developing programs based on %{name}.
@@ -46,7 +45,7 @@ Libraries and includes files for developing programs based on %{name}.
 %setup -qn %{name}-%{version}
 
 %build
-%configure2_5x --disable-static
+%configure2_5x --disable-static --with-html-dir=/dev/null
 %make
 
 %install
@@ -80,4 +79,3 @@ rm -rf %{buildroot}
 %{_libdir}/*.la
 %{_libdir}/pkgconfig/*.pc
 %{_includedir}/*
-%_datadir/gtk-doc/html/raptor/
