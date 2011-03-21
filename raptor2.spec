@@ -1,6 +1,6 @@
 %define name    raptor2
-%define version 2.0.0
-%define release %mkrel 3
+%define version 2.0.2
+%define release %mkrel 1
 
 %define major	0
 %define libname %mklibname %{name}_ %{major}
