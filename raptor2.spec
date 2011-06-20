@@ -1,6 +1,6 @@
 %define name    raptor2
 %define version 2.0.3
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define major	0
 %define libname %mklibname %{name}_ %{major}
@@ -51,6 +51,10 @@ Libraries and includes files for developing programs based on %{name}.
 %install
 rm -rf %{buildroot}
 %makeinstall_std
+
+%if "%{_lib}" == "lib64"
+perl -pi -e "s|-L/usr/lib\b|-L%{_libdir}|g" %{buildroot}%{_libdir}/*.la
+%endif
 
 %clean
 rm -rf %{buildroot}
