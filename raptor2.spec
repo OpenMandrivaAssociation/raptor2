@@ -1,6 +1,6 @@
 %define name    raptor2
-%define version 2.0.3
-%define release %mkrel 2
+%define version 2.0.4
+%define release %mkrel 1
 
 %define major	0
 %define libname %mklibname %{name}_ %{major}
@@ -15,9 +15,9 @@ Group:     	Development/Other
 Source:    	http://librdf.org/dist/source/%{name}-%{version}.tar.gz
 URL:       	http://librdf.org/raptor/
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: 	libxml2-devel
-BuildRequires:	libxslt-devel
-BuildRequires:  curl-devel
+BuildRequires: 	libxml2-devel >= 2.6.8
+BuildRequires:	libxslt-devel >= 1.0.18
+BuildRequires:  curl-devel >= 7.12.0
 Conflicts:	raptor < 2.0.0
 
 %description
