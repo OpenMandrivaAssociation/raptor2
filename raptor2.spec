@@ -1,23 +1,20 @@
-%define name    raptor2
-%define version 2.0.4
-%define release %mkrel 1
-
 %define major	0
 %define libname %mklibname %{name}_ %{major}
 %define develname %mklibname -d %{name}
 
 Summary:   	Raptor RDF Parser Toolkit for Redland
-Name:      	%{name}
-Version:   	%{version}
-Release:   	%{release}
+Name:      	raptor2
+Version:   	2.0.4
+Release:   	1
 License: 	GPL LGPL
 Group:     	Development/Other
-Source:    	http://librdf.org/dist/source/%{name}-%{version}.tar.gz
+Source0:    	http://librdf.org/dist/source/%{name}-%{version}.tar.gz
 URL:       	http://librdf.org/raptor/
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: 	libxml2-devel >= 2.6.8
 BuildRequires:	libxslt-devel >= 1.0.18
-BuildRequires:  curl-devel >= 7.12.0
+BuildRequires:	curl-devel >= 7.12.0
+BuildRequires:	gtk-doc
 Conflicts:	raptor < 2.0.0
 
 %description
@@ -26,8 +23,8 @@ a set of standalone RDF parsers, generating triples from RDF/XML
 or N-Triples.
 
 %package -n	%{libname}
-Summary:        Dynamic libraries from %{name}
-Group:          System/Libraries
+Summary:         Dynamic libraries from %{name}
+Group:           System/Libraries
 
 %description -n	%{libname}
 Dynamic libraries from %{name}.
@@ -42,7 +39,7 @@ Provides:	%{name}-devel = %{version}
 Libraries and includes files for developing programs based on %{name}.
 
 %prep
-%setup -qn %{name}-%{version}
+%setup -q
 
 %build
 %configure2_5x --disable-static --with-html-dir=/dev/null
@@ -55,6 +52,9 @@ rm -rf %{buildroot}
 %if "%{_lib}" == "lib64"
 perl -pi -e "s|-L/usr/lib\b|-L%{_libdir}|g" %{buildroot}%{_libdir}/*.la
 %endif
+
+# clean .la files
+rm -f %{buildroot}%{_libdir}/*.la
 
 %clean
 rm -rf %{buildroot}
@@ -80,6 +80,5 @@ rm -rf %{buildroot}
 %files -n %develname
 %defattr(-, root, root)
 %{_libdir}/lib*.so
-%{_libdir}/*.la
 %{_libdir}/pkgconfig/*.pc
 %{_includedir}/*
