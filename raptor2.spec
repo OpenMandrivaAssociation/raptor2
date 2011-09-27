@@ -5,7 +5,7 @@
 Summary:   	Raptor RDF Parser Toolkit for Redland
 Name:      	raptor2
 Version:   	2.0.4
-Release:   	2
+Release:   	3
 License: 	GPL LGPL
 Group:     	Development/Other
 Source0:    	http://librdf.org/dist/source/%{name}-%{version}.tar.gz
@@ -74,11 +74,11 @@ rm -rf %{buildroot}
 %{_mandir}/man3/libraptor2.3*
 %{_bindir}/rapper
 
-%files -n %libname
+%files -n %{libname}
 %defattr(-,root,root)
 %{_libdir}/lib*.so.%{major}*
 
-%files -n %develname
+%files -n %{develname}
 %defattr(-, root, root)
 %{_libdir}/lib*.so
 %{_libdir}/pkgconfig/*.pc
