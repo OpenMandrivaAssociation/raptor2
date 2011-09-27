@@ -32,8 +32,9 @@ Dynamic libraries from %{name}.
 %package -n	%{develname}
 Summary:	Header files and static libraries from %name
 Group:		Development/C
+Requires:	gtk-doc
 Requires:	%{libname} >= %{version}
-Provides:	%{name}-devel = %{version}
+Provides:	%{name}-devel = %{version}-%{release}
 
 %description -n	%{develname}
 Libraries and includes files for developing programs based on %{name}.
