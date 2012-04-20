@@ -4,7 +4,7 @@
 
 Summary:   	Raptor RDF Parser Toolkit for Redland
 Name:      	raptor2
-Version:   	2.0.6
+Version:   	2.0.7
 Release:   	1
 License: 	GPL LGPL
 Group:     	Development/Other
@@ -15,6 +15,7 @@ BuildRequires: 	libxml2-devel >= 2.6.8
 BuildRequires:	libxslt-devel >= 1.0.18
 BuildRequires:	curl-devel >= 7.12.0
 BuildRequires:	gtk-doc
+BuildRequires:	yajl-devel
 Conflicts:	raptor < 2.0.0
 
 %description
@@ -50,36 +51,22 @@ Libraries and includes files for developing programs based on %{name}.
 rm -rf %{buildroot}
 %makeinstall_std
 
-%if "%{_lib}" == "lib64"
-perl -pi -e "s|-L/usr/lib\b|-L%{_libdir}|g" %{buildroot}%{_libdir}/*.la
-%endif
+# cleanup
+rm -rf %{buildroot}/dev/null
 
 # clean .la files
 rm -f %{buildroot}%{_libdir}/*.la
 
-%clean
-rm -rf %{buildroot}
-
-%if %mdkversion < 200900
-%post -n %libname -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %libname -p /sbin/ldconfig
-%endif
-
 %files
-%defattr(-, root, root)
 %doc AUTHORS COPYING COPYING.LIB ChangeLog LICENSE.txt NEWS README
 %{_mandir}/man1/rap*
 %{_mandir}/man3/libraptor2.3*
 %{_bindir}/rapper
 
 %files -n %{libname}
-%defattr(-,root,root)
 %{_libdir}/lib*.so.%{major}*
 
 %files -n %{develname}
-%defattr(-, root, root)
 %{_libdir}/lib*.so
 %{_libdir}/pkgconfig/*.pc
 %{_includedir}/*
