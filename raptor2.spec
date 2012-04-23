@@ -15,7 +15,7 @@ BuildRequires: 	libxml2-devel >= 2.6.8
 BuildRequires:	libxslt-devel >= 1.0.18
 BuildRequires:	curl-devel >= 7.12.0
 BuildRequires:	gtk-doc
-BuildRequires:	yajl-devel
+#BuildRequires:	yajl-devel
 Conflicts:	raptor < 2.0.0
 
 %description
