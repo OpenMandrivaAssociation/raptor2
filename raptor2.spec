@@ -4,13 +4,12 @@
 
 Summary:   	Raptor RDF Parser Toolkit for Redland
 Name:      	raptor2
-Version:   	2.0.7
+Version:   	2.0.8
 Release:   	1
 License: 	GPL LGPL
 Group:     	Development/Other
 Source0:    	http://librdf.org/dist/source/%{name}-%{version}.tar.gz
 URL:       	http://librdf.org/raptor/
-BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: 	libxml2-devel >= 2.6.8
 BuildRequires:	libxslt-devel >= 1.0.18
 BuildRequires:	curl-devel >= 7.12.0
