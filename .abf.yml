@@ -1,2 +1,4 @@
+removed_sources:
+  raptor2-2.0.8.tar.gz: 6caec62d28dbf5bc26e8de5a46101b52aabf94fd
 sources:
-  "raptor2-2.0.8.tar.gz": 6caec62d28dbf5bc26e8de5a46101b52aabf94fd
+  raptor2-2.0.9.tar.gz: 5770aeaa9c1e9b655634d60a85227bbd57a262e9
