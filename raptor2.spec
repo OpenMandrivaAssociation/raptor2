@@ -5,7 +5,7 @@
 Summary:	Raptor RDF Parser Toolkit for Redland
 Name:		raptor2
 Version:	2.0.15
-Release:	1
+Release:	2
 License:	LGPLv2
 Group:		Development/Other
 Url:		http://librdf.org/raptor/
@@ -16,13 +16,6 @@ BuildRequires:	pkgconfig(libcurl)
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(libxslt)
 Conflicts:	raptor < 2.0.0
-
-%track
-prog %name = {
-	url = http://librdf.org/raptor/
-	version = %{version}
-	regex = "Latest version:	(__VER__) \("
-}
 
 %description
 Raptor is the RDF Parser Toolkit for Redland that provides
