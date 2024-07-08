@@ -1,22 +1,13 @@
---- raptor2-2.0.15/src/parsedate.c.omv~	2017-06-26 02:23:08.385276937 +0200
-+++ raptor2-2.0.15/src/parsedate.c	2017-06-26 02:23:16.794080376 +0200
-@@ -384,7 +384,7 @@ typedef short int yytype_int16;
- # define YYUSE(E) /* empty */
+diff -up raptor2-2.0.16/src/parsedate.c.1~ raptor2-2.0.16/src/parsedate.c
+--- raptor2-2.0.16/src/parsedate.c.1~	2024-07-08 14:56:49.353234768 +0200
++++ raptor2-2.0.16/src/parsedate.c	2024-07-08 14:58:56.534597080 +0200
+@@ -449,7 +449,7 @@ typedef int yy_state_fast_t;
  #endif
  
--#if defined __GNUC__ && 407 <= __GNUC__ * 100 + __GNUC_MINOR__
-+#if !defined(__clang__) && defined __GNUC__ && 407 <= __GNUC__ * 100 + __GNUC_MINOR__
  /* Suppress an incorrect diagnostic about yylval being uninitialized.  */
- # define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN \
-     _Pragma ("GCC diagnostic push") \
---- raptor2-2.0.15/src/turtle_parser.c.omv~	2017-06-26 02:23:23.890914470 +0200
-+++ raptor2-2.0.15/src/turtle_parser.c	2017-06-26 02:23:38.459573860 +0200
-@@ -325,7 +325,7 @@ typedef short int yytype_int16;
- # define YYUSE(E) /* empty */
- #endif
- 
--#if defined __GNUC__ && 407 <= __GNUC__ * 100 + __GNUC_MINOR__
-+#if !defined(__clang__) && defined __GNUC__ && 407 <= __GNUC__ * 100 + __GNUC_MINOR__
- /* Suppress an incorrect diagnostic about yylval being uninitialized.  */
- # define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN \
-     _Pragma ("GCC diagnostic push") \
+-#if defined __GNUC__ && ! defined __ICC && 406 <= __GNUC__ * 100 + __GNUC_MINOR__
++#if defined __GNUC__ && && ! defined __clang__ ! defined __ICC && 406 <= __GNUC__ * 100 + __GNUC_MINOR__
+ # if __GNUC__ * 100 + __GNUC_MINOR__ < 407
+ #  define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN                           \
+     _Pragma ("GCC diagnostic push")                                     \
+diff -up raptor2-2.0.16/src/turtle_parser.c.1~ raptor2-2.0.16/src/turtle_parser.c

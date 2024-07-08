@@ -4,18 +4,22 @@
 
 Summary:	Raptor RDF Parser Toolkit for Redland
 Name:		raptor2
-Version:	2.0.15
-Release:	4
+Version:	2.0.16
+Release:	1
 License:	LGPLv2
 Group:		Development/Other
 Url:		http://librdf.org/raptor/
 Source0:	http://download.librdf.org/source/%{name}-%{version}.tar.gz
-Patch0:		raptor2-2.0.15-clang-bug-33589.patch
 BuildRequires:	gtk-doc
 BuildRequires:	pkgconfig(libcurl)
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(libxslt)
 Conflicts:	raptor < 2.0.0
+BuildSystem:	autotools
+
+%patchlist
+raptor2-2.0.15-clang-bug-33589.patch
+raptor-2.0.16-fix-build-with-current-libxml.patch
 
 %description
 Raptor is the RDF Parser Toolkit for Redland that provides
@@ -38,20 +42,6 @@ Provides:	%{name}-devel = %{version}-%{release}
 %description -n	%{devname}
 Libraries and includes files for developing programs based on %{name}.
 
-%prep
-%setup -q
-%autopatch -p1
-
-%build
-%configure2_5x --disable-static --with-html-dir=/dev/null
-%make
-
-%install
-%makeinstall_std
-
-# cleanup
-rm -rf %{buildroot}/dev/null
-
 %files
 %doc AUTHORS COPYING COPYING.LIB ChangeLog LICENSE.txt NEWS README
 %{_bindir}/rapper
@@ -65,4 +55,3 @@ rm -rf %{buildroot}/dev/null
 %{_libdir}/libraptor2.so
 %{_libdir}/pkgconfig/*.pc
 %{_includedir}/*
-
