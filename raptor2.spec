@@ -8,7 +8,7 @@ Version:	2.0.16
 Release:	1
 License:	LGPLv2
 Group:		Development/Other
-Url:		http://librdf.org/raptor/
+Url:		https://librdf.org/raptor/
 Source0:	http://download.librdf.org/source/%{name}-%{version}.tar.gz
 BuildRequires:	gtk-doc
 BuildRequires:	pkgconfig(libcurl)
