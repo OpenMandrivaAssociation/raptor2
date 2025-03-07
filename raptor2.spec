@@ -5,7 +5,7 @@
 Summary:	Raptor RDF Parser Toolkit for Redland
 Name:		raptor2
 Version:	2.0.16
-Release:	1
+Release:	2
 License:	LGPLv2
 Group:		Development/Other
 Url:		https://librdf.org/raptor/
